@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Azure Test</title>
+</head>
+<body>
+  <h1>Azure Test Page</h1>
+  <p id="msg">Loading...</p>
+
+  <script>
+    fetch('/api/message')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('msg').textContent = data.message;
+      })
+      .catch(err => {
+        document.getElementById('msg').textContent = 'Error fetching data';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
